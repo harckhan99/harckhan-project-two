@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mozilla+Headline:wght@200..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-md flex flex-col">
+    <div class="p-6 text-2xl font-bold text-orange-600">My Dashboard</div>
+    <nav class="flex-1">
+      <ul>
+        <li><button onclick="showPage('home')" class="w-full text-left px-6 py-3 hover:bg-gray-100">Home</button></li>
+        <li><button onclick="showPage('courses')" class="w-full text-left px-6 py-3 hover:bg-gray-100">Courses</button></li>
+        <li><button onclick="showPage('assignments')" class="w-full text-left px-6 py-3 hover:bg-gray-100">Assignments</button></li>
+        <li><button onclick="showPage('profile')" class="w-full text-left px-6 py-3 hover:bg-gray-100">Profile</button></li>
+      </ul>
+    </nav>
+
+    <!-- Main Page Link -->
+    <p class="text-center text-sm text-gray-600 mb-4">
+      Back To
+      <a href="index.html" class="text-orange-600 hover:underline">Main Page</a>
+    </p>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+    <!-- Topbar -->
+    <header class="flex items-center justify-between bg-white shadow px-6 py-4">
+      <h1 id="pageTitle" class="text-xl font-semibold">Home</h1>
+      <div class="flex items-center gap-4">
+        <span class="text-gray-600">Student</span>
+        <img id="avatar" src="https://i.pravatar.cc/40" alt="avatar" class="rounded-full w-10 h-10">
+      </div>
+    </header>
+
+    <!-- Pages -->
+    <main class="p-6 overflow-y-auto flex-1">
+      <!-- Home Page -->
+      <section id="home" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-semibold">Enrolled Courses</h2>
+            <p id="enrolled" class="mt-2 text-gray-600">Loading...</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-semibold">Deadlines</h2>
+            <p id="deadlines" class="mt-2 text-gray-600">Loading...</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-semibold">Progress</h2>
+            <p id="progress" class="mt-2 text-gray-600">Loading...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses Page -->
+      <section id="courses" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Available Courses</h2>
+        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      </section>
+
+      <!-- Assignments Page -->
+      <section id="assignments" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Assignments</h2>
+        <ul id="assignmentsList" class="space-y-3"></ul>
+      </section>
+
+      <!-- Profile Page -->
+      <section id="profile" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Profile</h2>
+        <div class="bg-white p-6 rounded-lg shadow space-y-4">
+          <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+          <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+          <button class="bg-orange-600 text-white px-4 py-2 rounded">Edit Profile</button>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+
+  <!-- External JS -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
